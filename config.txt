@@ -1,0 +1,4 @@
+
+RAW_DATA=a
+ENCRYPTION_KEY=secret-key
+ADDITIONAL_KEYS=c,b

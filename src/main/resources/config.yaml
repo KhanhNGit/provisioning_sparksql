@@ -1,0 +1,44 @@
+encryption:
+  key: secret-key
+  columns:
+    bank: key
+    identification_card: key, full_name
+mappingColumn:
+  #  full_name: full_name_mapped
+  uuid: uuid
+  full_name: full_name
+  identification_card: identification_card
+  birthdate: birthdate
+  bank: bank
+  key: key
+storage:
+  nameFile: provisioning_thaipd.csv
+  pathFile: hdfs://10.254.207.99:9091/user/thaipd/test.csv
+backup:
+  pathFileExport: file
+  exportFileName: "/transferred_data_%s.csv"
+RDBMSConfig:
+  jdbcUrl: jdbc:postgresql://10.30.132.14:8020/test_provisioning
+  table: public.vlp_storage_tranfer_data
+  username: lifesup_thaipd
+  password: TL8i@3I$fuDP
+  driver: org.postgresql.Driver
+  preSql: select * from public.vlp_storage_tranfer_data
+FTPConfig:
+  type: numberFile
+  numberFile: 1
+  maxLines: 7
+  ipFtp: 10.254.207.83
+  portFtp: 9820
+  username: ftp_test
+  password: TL8i@3I$fuDP
+  pathFileUpload: /thaipd
+  nameFileUpload: ftp
+  extension: csv
+  compression: tar
+  delimiter: "|"
+KafkaConfig:
+  topic: test
+  ack: All
+  brokers: 10.254.207.81:9092
+  delimiter: "|"

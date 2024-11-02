@@ -1,0 +1,8 @@
+FROM spark:3.5.1-scala2.12-java11-ubuntu
+
+RUN mkdir /opt/spark/vlp-provisioning
+RUN mkdir /opt/spark/vlp-provisioning/jars
+RUN mkdir /opt/spark/vlp-provisioning/configs
+RUN mkdir /opt/spark/vlp-provisioning/deps
+
+COPY ../target/spark-scala-hdfs-1.0-SNAPSHOT.jar /opt/spark/vlp-provisioning/jars/spark-scala-hdfs-1.0-SNAPSHOT.jar
